@@ -6,16 +6,15 @@ import "./styles.css";
 
 function App() {
   const [repositories, setRepositories] = useState([])
+  const [title, setTitle] = useState('')
+  const [url, setUrl] = useState('')
+  const [techs, setTechs] = useState([])
 
   async function handleAddRepository() {
     const newRepository = await api.post('repositories', {
-      title: `New Repository ${Date.now()}`,
-      url: `http://teste.com/${Date.now()}`,
-      techs: [
-        "NodeJS",
-        "Middlewares",
-        "Params"
-      ]
+      title,
+      url,
+      techs
     })
 
     setRepositories([...repositories, newRepository.data])
@@ -42,18 +41,27 @@ function App() {
     <div>
       <section id="form-group">
         <div className="input-block">
-          <label htmlFor="name">Name</label>
-          <input type="text" id="name" />
+          <label htmlFor="title">Title</label>
+          <input 
+            type="text" id="title" 
+            value={title} onChange={e => setTitle(e.target.value)}
+          />
         </div>
         
         <div className="input-block">
           <label htmlFor="url">GitHub URL</label>
-          <input type="text" id="url" />
+          <input 
+            type="text" id="url"
+            value={url} onChange={e => setUrl(e.target.value)}
+          />
         </div>
         
         <div className="input-block">
-          <label htmlFor="techs">Techs</label>
-          <input type="text" id="techs" />
+          <label htmlFor="techs">Techs (separe por ",")</label>
+          <input 
+            type="text" id="techs"
+            value={techs} onChange={e => setTechs(e.target.value.split(','))}
+          />
         </div>
 
         <button onClick={handleAddRepository}>Adicionar</button>
