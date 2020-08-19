@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
@@ -9,8 +10,9 @@ body {
 }
 
 div {
-  width: 100%;
-  margin: 20px;
+  width: 90%;
+  margin: 1.6rem;
+  background: #dedede;
 }
 
 div li {
@@ -28,7 +30,6 @@ button {
   border: 0;
   padding: 10px 15px;
   cursor: pointer;
-  margin-top: 15px;
   font-weight: bold;
   font-size: 14px;
 }
@@ -36,4 +37,20 @@ button {
 div li button {
   margin: 0 15px;
   background: #ca4949;
+}
+
+#form-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.1rem;
+}
+
+.input-block label {
+  font-size: 1.2rem;
+}
+
+.input-block input {
+  width: 100%;
+  height: 30px;
 }
